@@ -19,9 +19,34 @@ ip a
 ssh-keygen
 ssh-copy-id osboxes@172.16.0.4
 sudo hostnamectl set-hostname control
+
+login as bp2024
+ssh-copy-id bp2024@172.16.0.4
+
+
+
+```
+test ssh connect to bp2024@172.16.0.4 with no password
+
+## GIT
+
+```console
+
+sudo yum install git
+git config --global user.name "Frank Vanhoorne"
+git config --global user.email "frank.vanhoorne@student.hogent.be"
+git config --global push.default simple
+git config --global core.autocrlf input
+git config --global pull.rebase true
+
+add ssh key to github (public key)
+git clone git@github.com:SIDFVAN/Kafka.git
+[bp2024@control ~]$ ls
+install-nginx.yaml  inventory.yaml  Kafka
+[bp2024@control ~]$
+
 ```
 
-test ssh connect to osboxes@172.16.0.4
 
 
 ## Install Kafka node
