@@ -1,5 +1,11 @@
 # Kafka server
 
+https://medium.com/@azsecured/install-kafka-cluster-kraft-with-sasl-plaintext-and-acl-configs-ae01a1e0040d
+
+
+
+
+
 ## Install Ansible on control node
 
 <https://www.simplilearn.com/tutorials/ansible-tutorial/ansible-installation>
@@ -52,8 +58,10 @@ install-nginx.yaml  inventory.yaml  Kafka
 ## Install Kafka node
 
 ```console
+root 
+osboxes.org
 sudo loadkeys be
-localectl set-keymap
+localectl set-keymap be                     
 sudo adduser osboxes
 passwd  osboxes
 usermod -aG wheel osboxes
@@ -70,3 +78,56 @@ ip a
 sudo hostnamectl set-hostname kafka
 ```
 
+### Install Confluence
+
+#### Download the Confluent Platform collection from Ansible Galaxy
+
+```console
+[bp2024@control ~]$ ansible-galaxy collection install confluent.platform
+Starting galaxy collection install process
+Process install dependency map
+Starting collection install process
+Downloading https://galaxy.ansible.com/api/v3/plugin/ansible/content/published/collections/artifacts/confluent-platform-7.6.0.tar.gz to /home/bp2024/.ansible/tmp/ansible-local-78708bapqo7le/tmp1ou1uyc9/confluent-platform-7.6.0-oed5qyp3
+Installing 'confluent.platform:7.6.0' to '/home/bp2024/.ansible/collections/ansible_collections/confluent/platform'
+confluent.platform:7.6.0 was installed successfully
+[bp2024@control ~]$ 
+
+```
+[bp2024@control ansible]$ ansible-config init --disabled -t all > ansible.cfg
+
+edit ansible.cfg
+
+```ini
+[defaults]
+hash_behaviour=merge
+```
+### Install conduktor on KafkaNode1
+
+first install docker
+
+
+curl -L https://releases.conduktor.io/quick-start -o docker-compose.yml && docker compose up -d --wait && echo "Conduktor started on http://localhost:8080"
+
+
+ssh bp2024@172.16.0.4
+
+
+
+
+
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo groupadd docker # allready exists
+sudo usermod -aG docker bp2024
+
+docker exec -it kafka1 bash
+
+# Kafka server node 2
+
+https://medium.com/@azsecured/install-kafka-cluster-kraft-with-sasl-plaintext-and-acl-configs-ae01a1e0040d
+
+ssh osboxes@172.16.0.5
+
+sudo yum update
+sudo dnf install java-11-openjdk
