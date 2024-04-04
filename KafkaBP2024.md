@@ -1191,3 +1191,4 @@ frankv72/bp2024:1.2 \
 --override auto.create.topics.enable=true \
 --override unclean.leader.election.enable=false
 
+sed -i -e 's/node.id=1/node.id=2/g' /tmp/kraft-combined-logs/meta.properties
