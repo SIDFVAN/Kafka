@@ -1145,7 +1145,12 @@ test admin create topic
 now goto swarm
 
 
-bash /opt/kafka/bin/kafka-topics.sh --bootstrap-server 172.16.0.3:9092 --create --topic newtopic --partitions 2 --replication-factor 2 --command-config /opt/kafka/config/kraft/admin.config
+bash /opt/kafka/bin/kafka-topics.sh --bootstrap-server 172.16.0.3:9092 --create --topic newtopic --partitions 2 --replication-factor 2 --command-config nant/kafka/config/kraft/admin.config
+
+bash /opt/kafka/bin/kafka-topics.sh --bootstrap-server 172.16.0.3:9092 --create --topic newtopic --partitions 2 --replication-factor 2
+ --create --topic newtopic --partitions 2 --replication-factor 2 
+
+bash /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka1:9092 --create --topic newtopic --partitions 2 --replication-factor 2
 
 
 docker service create \
