@@ -63,10 +63,10 @@ metadata.log.dir=/opt/kafka/logs_metadata
  
  
 process.roles=broker,controller
-listeners=BROKER://serverip:9092,CONTROLLER://serverip:9093
-advertised.listeners=BROKER://serverip:9092
+listeners=BROKER://172.16.0.3:9094,CONTROLLER://172.16.0.3:9095
+advertised.listeners=BROKER://172.16.0.3:9094
 listener.security.protocol.map=BROKER:SASL_PLAINTEXT,CONTROLLER:SASL_PLAINTEXT
-controller.quorum.voters=1@server1ip:9093,2@server2ip:9093,3@server3ip:9093
+controller.quorum.voters=1@172.16.0.3:9095
  
 inter.broker.listener.name=BROKER
 controller.listener.names=CONTROLLER
@@ -139,6 +139,9 @@ export KAFKA_HEAP_OPTS=-"Xms1G -Xmx1G"
 export KAFKA_OPTS="-Djava.security.auth.login.config=/opt/kafka/config/kraft/jaas.config"
 
 ```
+
+export KAFKA_HEAP_OPTS=-"Xms1G -Xmx1G"
+export KAFKA_OPTS="-Djava.security.auth.login.config=~/kafka/config/kraft/jaas.config"
 
 #### start kafka nodes
 
