@@ -10,7 +10,7 @@ services:
       mode: global
       placement:
         constraints:
-          - node.labels.kafka==2
+          - node.labels.kafka==1
           
     environment:
       KAFKA_NODE_ID: 1
