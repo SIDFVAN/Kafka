@@ -11,7 +11,8 @@ services:
       placement:
         constraints:
           - node.labels.kafka==1
-          
+    command:
+      bash      
     environment:
       KAFKA_NODE_ID: 1
       KAFKA_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
