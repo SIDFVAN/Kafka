@@ -1,6 +1,6 @@
 version: '3'
 services:
-  kafka1:
+  Ubuntu1:
     image: ubuntu
     ports:
       - "9092:9092"
@@ -10,7 +10,7 @@ services:
       mode: global
       placement:
         constraints:
-          - node.labels.kafka==2
+          - node.labels.kafka==1
           
     environment:
       KAFKA_NODE_ID: 1
