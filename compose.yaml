@@ -15,8 +15,7 @@ services:
     ports:
        - 9093:9093
     command: >
-        bash -c "sed -i -e 's/node.id=1/node.id=2/g' /tmp/kraft-combined-logs/meta.properties
-        && sed -i -e 's/node.id=1/node.id=2/g' /opt/kafka/config/kraft/server.properties
+        bash -c "sed -i -e 's/node.id=1/node.id=2/g' /opt/kafka/config/kraft/server.properties
         && /opt/kafka/bin/kafka-storage.sh format -t azgB17mFT8if8tYAPn4y6Q -c /opt/kafka/config/kraft/server.properties"
        
  
