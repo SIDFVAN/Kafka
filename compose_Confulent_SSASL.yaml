@@ -14,7 +14,7 @@ services:
         constraints:
           - node.labels.kafka==1
     volumes:
-      - /etc/kafka/jaas.config:/etc/kafka/jaas.config      
+      - /etc/kafka/jaas.config:/etc/kafka/jaas.config
     environment:
       KAFKA_NODE_ID: 1
       KAFKA_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
@@ -24,7 +24,9 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: 'INTERNAL'
       KAFKA_CONTROLLER_QUORUM_VOTERS: '1@kafka1:29093'
       KAFKA_SASL_ENABLED_MECHANISMS: PLAIN
+      KAFKA_SASL_MECHANISM_CONTROLLER_PROTOCOL: PLAIN
       KAFKA_SASL_MECHANISM_INTER_BROKER_PROTOCOL: PLAIN
+      KAFKA_AUTHORIZER_CLASS_NAME: "org.apache.kafka.metadata.authorizer.StandardAuthorizer"
       KAFKA_PROCESS_ROLES: 'broker,controller'
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
@@ -32,7 +34,7 @@ services:
       CLUSTER_ID: 'ciWo7IWazngRchmPES6q5A=='
       KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
       KAFKA_OPTS: '-Djava.security.auth.login.config=/etc/kafka/jaas.config'
-
-
+      KAFKA_HEAP_OPTS: -"Xms1G -Xmx1G"
+      KAFKA_SUPER_USERS: "User:admin"
 networks:
   kafka-net:
