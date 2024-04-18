@@ -36,5 +36,7 @@ services:
       KAFKA_OPTS: '-Djava.security.auth.login.config=/etc/kafka/jaas.config'
       KAFKA_HEAP_OPTS: "-Xms1G -Xmx1G"
       KAFKA_SUPER_USERS: "User:admin"
+      KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "false"
+      KAFKA_DELETE_TOPIC_ENABLE: "true"
 networks:
   kafka-net:
