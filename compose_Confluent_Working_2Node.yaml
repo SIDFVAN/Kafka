@@ -13,7 +13,8 @@ services:
       placement:
         constraints:
           - node.labels.kafka==1
-          
+    volumes:
+      - /etc/kafka/jaas.config:/etc/kafka/jaas.config       
     environment:
       KAFKA_NODE_ID: 1
       KAFKA_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
