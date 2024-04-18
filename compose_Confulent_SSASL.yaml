@@ -34,7 +34,7 @@ services:
       CLUSTER_ID: 'ciWo7IWazngRchmPES6q5A=='
       KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
       KAFKA_OPTS: '-Djava.security.auth.login.config=/etc/kafka/jaas.config'
-      KAFKA_HEAP_OPTS: -"Xms1G -Xmx1G"
+      KAFKA_HEAP_OPTS: "Xms1G -Xmx1G"
       KAFKA_SUPER_USERS: "User:admin"
 networks:
   kafka-net:
