@@ -42,8 +42,8 @@ services:
     image: bde2020/hadoop-resourcemanager:2.0.0-hadoop3.2.1-java8
     ulimits:
       nofile:
-        soft: 65536
-        hard: 65536
+        soft: 8096
+        hard: 8096
     container_name: resourcemanager
     restart: always
     environment:
