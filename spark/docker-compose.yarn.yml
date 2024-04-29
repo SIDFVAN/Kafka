@@ -1,12 +1,15 @@
 version: '3.8'
-
 services:
   spark-yarn-master:
-    container_name: da-spark-yarn-master
-    build:
-      dockerfile: Dockerfile-yarn
-      context: .
-    image: da-spark-yarn-image
+    image: frankv72/spark-yarn-image:1.0
+    hostname: spark-yarn-master
+    networks:
+      - spark-net
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.labels.spark==1
     entrypoint: ['./entrypoint.sh', 'master']
     volumes:
       - ./book_data:/opt/spark/data
@@ -20,9 +23,56 @@ services:
       - '8088:8088'
 
 
-  spark-yarn-worker:
-#    container_name: da-spark-worker
-    image: da-spark-yarn-image
+  spark-yarn-worker1:
+    image: frankv72/spark-yarn-image:1.0
+    hostname: spark-yarn-worker1
+    networks:
+      - spark-net
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.labels.spark==1
+    entrypoint: ['./entrypoint.sh', 'worker']
+    depends_on:
+      - spark-yarn-master
+    env_file:
+      - .env.spark
+    volumes:
+      - ./book_data:/opt/spark/data
+      - ./spark_apps:/opt/spark/apps
+
+  spark-yarn-worker2:
+  
+    image: frankv72/spark-yarn-image:1.0
+    hostname: spark-yarn-worker2
+    networks:
+      - spark-net
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.labels.spark==1
+    entrypoint: ['./entrypoint.sh', 'worker']
+    depends_on:
+      - spark-yarn-master
+    env_file:
+      - .env.spark
+    volumes:
+      - ./book_data:/opt/spark/data
+      - ./spark_apps:/opt/spark/apps
+
+  spark-yarn-worker3:
+  
+    image: frankv72/spark-yarn-image:1.0
+    hostname: spark-yarn-worker3
+    networks:
+      - spark-net
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.labels.spark==1
     entrypoint: ['./entrypoint.sh', 'worker']
     depends_on:
       - spark-yarn-master
@@ -33,8 +83,15 @@ services:
       - ./spark_apps:/opt/spark/apps
 
   yarn-history-server:
-    container_name: da-spark-yarn-history
-    image: da-spark-yarn-image
+    hostname: spark-yarn-history
+    image: frankv72/spark-yarn-image:1.0
+    networks:
+      - spark-net
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.labels.spark==1
     entrypoint: ['./entrypoint.sh', 'history']
     depends_on:
       - spark-yarn-master
