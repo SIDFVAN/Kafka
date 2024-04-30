@@ -4,6 +4,10 @@ services:
   namenode:
     image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
     hostname: namenode
+    ulimits:
+      nofile:
+        soft: 8096
+        hard: 8096
     ports:
       - 9870:9870
       - 9000:9000
@@ -24,6 +28,10 @@ services:
   datanode1:
     image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
     hostname: datanode1
+    ulimits:
+      nofile:
+        soft: 8096
+        hard: 8096
     networks:
       - hadoop-net
     deploy:
@@ -42,6 +50,10 @@ services:
   datanode2:
     image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
     hostname: datanode2
+    ulimits:
+      nofile:
+        soft: 8096
+        hard: 8096
     networks:
       - hadoop-net
     deploy:
@@ -60,6 +72,10 @@ services:
   datanode3:
     image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
     hostname: datanode3
+    ulimits:
+      nofile:
+        soft: 8096
+        hard: 8096
     networks:
       - hadoop-net
     deploy:
@@ -79,6 +95,10 @@ services:
   datanode4:
     image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
     hostname: datanode4
+    ulimits:
+      nofile:
+        soft: 8096
+        hard: 8096
     networks:
       - hadoop-net
     deploy:
