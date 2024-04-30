@@ -81,3 +81,8 @@ c109dd20bbc5   none                         null      local
 39c15ae89ac2   pyspark-playground_default   bridge    local
 ```
 
+Installeer stack op Node1
+
+```
+docker stack deploy -c docker-compose-Hadoop.yml hadoop --detach=false
+```

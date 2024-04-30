@@ -8,6 +8,11 @@
     <value>100</value>
   </property>
   <property>
+    <name>yarn.scheduler.capacity.root.default.minimum-user-limit-percent</name>
+    <value>100</value>
+  </property>
+
+  <property>
     <name>yarn.scheduler.capacity.resource-calculator</name>
     <value>org.apache.hadoop.yarn.util.resource.DominantResourceCalculator</value>
   </property>

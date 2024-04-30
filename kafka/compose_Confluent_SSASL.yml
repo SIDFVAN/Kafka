@@ -79,7 +79,6 @@ services:
       KAFKA_DELETE_TOPIC_ENABLE: "true"
   kafka3:
     image: confluentinc/cp-kafka
-
     hostname: kafka3
     ports:
       - "9094:9094"
