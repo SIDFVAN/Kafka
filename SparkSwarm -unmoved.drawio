@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net" modified="2024-04-30T10:00:30.254Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" version="22.1.17" etag="iUbg3L7ED00B5cAOBsWZ" type="device">
+  <diagram name="Pagina-1" id="nATbCSx4QJsKzGruSLtj">
+    <mxGraphModel dx="1115" dy="670" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="6" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="102" y="257" width="401" height="475" as="geometry" />
+        </mxCell>
+        <mxCell id="trE5b1TSk-sXv22cwQkJ-8" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="320" y="270" width="160" height="418" as="geometry" />
+        </mxCell>
+        <mxCell id="trE5b1TSk-sXv22cwQkJ-6" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="120" y="270" width="166" height="419" as="geometry" />
+        </mxCell>
+        <mxCell id="trE5b1TSk-sXv22cwQkJ-3" value="Hadoop&amp;nbsp;&lt;br&gt;namenode" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="141" y="318" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="trE5b1TSk-sXv22cwQkJ-4" value="Hadoop&amp;nbsp;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;datanode1" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="141" y="391" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="trE5b1TSk-sXv22cwQkJ-7" value="node4" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="163" y="694" width="51" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="trE5b1TSk-sXv22cwQkJ-9" value="node5" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="379" y="694" width="51" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="trE5b1TSk-sXv22cwQkJ-10" value="Overlay Network" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="200" y="280" width="230" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="2" value="Hadoop&amp;nbsp;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;datanode2" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="143" y="463" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Hadoop&amp;nbsp;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;datanode3" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="143" y="538" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Hadoop&amp;nbsp;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;namenode4" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="609" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="Docker Swarm" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="406" y="739" width="97" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QhCbZ41yHCCuzW0-rgN4-8" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fillColor=#d5e8d4;strokeColor=#82b366;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="641.1111111111111" as="sourcePoint" />
+            <mxPoint x="340" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
