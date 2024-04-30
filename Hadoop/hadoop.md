@@ -1,6 +1,6 @@
 # POC Hadoop
 
-### Commands
+## Config en Deploy
 
 lijst van nodes in Docker Swarm
 
@@ -61,6 +61,7 @@ g33ibmcs0x2q2rkgaa0c62j36 [node2]: map[hadoop:2]
 ```
 
 Maak overlay netwerk hadoop-net op node1
+
 ```console
 [bp2024@node1 ~]$ docker network create --driver overlay hadoop-net
 lcr7ulmxxltjebdfgkm3qm44a
@@ -83,6 +84,33 @@ c109dd20bbc5   none                         null      local
 
 Installeer stack op Node1
 
-```
+```console
 docker stack deploy -c docker-compose-Hadoop.yml hadoop --detach=false
 ```
+
+```console
+bp2024@node1 Hadoop]$ docker stack deploy -c docker-compose-Hadoop.yml hadoop --detach=false
+Ignoring unsupported options: restart
+
+Creating network hadoop_hadoop-net
+Creating service hadoop_namenode
+Creating service hadoop_datanode1
+Creating service hadoop_datanode2
+Creating service hadoop_datanode3
+Creating service hadoop_datanode4
+overall progress: 0 out of 1 tasks
+b0vxtj6gwr42: ready     [======================================>            ]
+
+```
+
+## Testen van Hadoop
+
+Zie OLOD
+
+
+
+
+
+
+
+
