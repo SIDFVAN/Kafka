@@ -12,7 +12,7 @@ services:
       - 9870:9870
       - 9000:9000
     networks:
-      hostnet: {}
+      - hadoop-net
     deploy:
       mode: global
       placement:
@@ -33,7 +33,7 @@ services:
         soft: 8096
         hard: 8096
     networks:
-      hostnet: {}
+      - hadoop-net
     deploy:
       mode: global
       placement:
@@ -54,6 +54,4 @@ volumes:
 
 
 networks:
-  hostnet:
-    external: true
-    name: host
+  hadoop-net:
