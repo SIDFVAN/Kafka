@@ -8,9 +8,6 @@ services:
       nofile:
         soft: 8096
         hard: 8096
-    ports:
-      - 9870:9870
-      - 9000:9000
     networks:
         hadoop-net:
     deploy:
