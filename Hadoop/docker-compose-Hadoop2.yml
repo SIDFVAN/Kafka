@@ -1,136 +1,49 @@
-version: '3'
+version: "3"
 
 services:
   namenode:
     image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
+    hostname: namenode
     ulimits:
       nofile:
         soft: 8096
         hard: 8096
+    ports:
+      - 9870:9870
+      - 9000:9000
     networks:
-      - hbase
+      - hadoop-net
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.labels.hadoop==1
     volumes:
-      - namenode:/hadoop/dfs/name
+      - hadoop_namenode:/hadoop/dfs/name
     environment:
       - CLUSTER_NAME=test
     env_file:
       - ./hadoop.env
-    deploy:
-      mode: replicated
-      replicas: 1
-      restart_policy:
-        condition: on-failure
-      placement:
-        constraints:
-          - node.labels.hadoop==1
-      labels:
-        traefik.docker.network: hbase
-        traefik.port: 50070
 
-  datanode:
+  datanode1:
     image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    hostname: datanode1
     ulimits:
       nofile:
         soft: 8096
         hard: 8096
     networks:
-      - hbase
-    volumes:
-      - datanode:/hadoop/dfs/data
-    env_file:
-      - ./hadoop.env
-    environment:
-      SERVICE_PRECONDITION: "namenode:50070"
+      - hadoop-net
     deploy:
       mode: global
       placement:
         constraints:
           - node.labels.hadoop==1
-      restart_policy:
-        condition: on-failure
-      labels:
-        traefik.docker.network: hbase
-        traefik.port: 50075
-
-  resourcemanager:
-    image: bde2020/hadoop-resourcemanager:2.0.0-hadoop3.2.1-java8
-    ulimits:
-      nofile:
-        soft: 8096
-        hard: 8096
-    networks:
-      - hbase
-    environment:
-      SERVICE_PRECONDITION: "namenode:50070 datanode:50075"
-    env_file:
-      - ./hadoop.env
-    deploy:
-      mode: replicated
-      replicas: 1
-      restart_policy:
-        condition: on-failure
-      placement:
-        constraints:
-          - node.labels.hadoop==1
-      labels:
-        traefik.docker.network: hbase
-        traefik.port: 8088
-    healthcheck:
-      disable: true
-
-  nodemanager:
-    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
-    ulimits:
-      nofile:
-        soft: 8096
-        hard: 8096
-    networks:
-      - hbase
-    environment:
-      SERVICE_PRECONDITION: "namenode:50070 datanode:50075 resourcemanager:8088"
-    env_file:
-      - ./hadoop.env
-    deploy:
-      mode: global
-      placement:
-        constraints:
-          - node.labels.hadoop==1
-      restart_policy:
-        condition: on-failure
-      labels:
-        traefik.docker.network: hbase
-        traefik.port: 8042
-
-  historyserver:
-    image: bde2020/hadoop-historyserver:2.0.0-hadoop3.2.1-java8
-    ulimits:
-      nofile:
-        soft: 8096
-        hard: 8096
-    networks:
-      - hbase
+    restart: always
     volumes:
-      - hadoop_historyserver:/hadoop/yarn/timeline
+      - hadoop_datanode1:/hadoop/dfs/data    
     environment:
-      SERVICE_PRECONDITION: "namenode:50070 datanode:50075 resourcemanager:8088"
+      - CLUSTER_NAME=test
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
     env_file:
       - ./hadoop.env
-    deploy:
-      mode: replicated
-      replicas: 1
-      placement:
-        constraints:
-          - node.labels.hadoop==1
-      labels:
-        traefik.docker.network: hbase
-        traefik.port: 8188
-
-volumes:
-  datanode:
-  namenode:
-  hadoop_historyserver:
-
-networks:
-  hbase:
-    external:
-      name: hbase
