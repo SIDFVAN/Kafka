@@ -77,7 +77,14 @@ ip a
 172.16.0.4
 sudo hostnamectl set-hostname kafka
 ```
-
+node1
+sudo nmcli con mod ens3 ipv4.addresses 192.168.0.41/24
+sudo nmcli con mod ens3 ipv4.gateway 192.168.0.1
+sudo nmcli con mod ens3 ipv4.dns "8.8.8.8"
+sudo nmcli con mod ens3 ipv4.method manual
+sudo nmcli con up ens3
+nmcli con add con-name "static-ens32" ifname ens32 type ethernet ip4 192.168.0.40 gw4 192.168.0.1
+sudo nmcli con up "static-ens32" iface ens3
 ### Install Confluence
 
 #### Download the Confluent Platform collection from Ansible Galaxy

@@ -103,6 +103,22 @@ b0vxtj6gwr42: ready     [======================================>            ]
 
 ```
 
+[bp2024@node1 Hadoop]$ docker service ls
+ID             NAME               MODE      REPLICAS   IMAGE                                             PORTS
+938l9s2s6kjb   hadoop_datanode1   global    1/1        bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+nk88kqf64iky   hadoop_datanode2   global    1/1        bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+p07j10f4oyoh   hadoop_datanode3   global    1/1        bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+eoo91dy22n7p   hadoop_datanode4   global    1/1        bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+ig2q3v8rbkao   hadoop_namenode    global    1/1        bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8   *:9000->9000/tcp, *:9870->9870/tcp
+[bp2024@node1 Hadoop]$ docker stack ps hadoop
+ID             NAME                                         IMAGE                                             NODE      DESIRED STATE   CURRENT STATE           ERROR     PORTS
+q6ogkgksd3xn   hadoop_datanode1.b0vxtj6gwr42pxprruskc928d   bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8   node1     Running         Running 2 minutes ago
+at6g22b8angr   hadoop_datanode2.b0vxtj6gwr42pxprruskc928d   bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8   node1     Running         Running 2 minutes ago
+kx165pam6hvb   hadoop_datanode3.b0vxtj6gwr42pxprruskc928d   bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8   node1     Running         Running 2 minutes ago
+jykfjfup37qg   hadoop_datanode4.b0vxtj6gwr42pxprruskc928d   bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8   node1     Running         Running 2 minutes ago
+ikrzqav8z1my   hadoop_namenode.b0vxtj6gwr42pxprruskc928d    bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8   node1     Running         Running 2 minutes ago
+
+
 ## Testen van Hadoop
 
 Zie OLOD
