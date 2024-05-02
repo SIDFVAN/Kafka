@@ -32,8 +32,8 @@ services:
       nofile:
         soft: 8096
         hard: 8096
-      ports:
-      - 9864:9864
+    ports:
+        - 9864:9864
       
     networks:
       - hadoop-net
