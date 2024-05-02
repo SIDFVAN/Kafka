@@ -15,6 +15,7 @@ services:
       - workbench
     deploy:
       mode: global
+      endpoint_mode: dnsrr
       placement:
         constraints:
           - node.labels.hadoop==1
