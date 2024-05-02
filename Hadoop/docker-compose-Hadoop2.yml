@@ -32,9 +32,7 @@ services:
       nofile:
         soft: 8096
         hard: 8096
-    ports:
-        - 9864:9864
-      
+    
     networks:
       - hadoop-net
     deploy:
@@ -42,7 +40,11 @@ services:
       placement:
         constraints:
           - node.labels.hadoop==1
-    restart: always
+   
+    
+    ports:
+        - 9864:9864
+      
     volumes:
       - hadoop_datanode1:/hadoop/dfs/data    
     environment:
