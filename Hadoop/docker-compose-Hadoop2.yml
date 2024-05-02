@@ -12,7 +12,7 @@ services:
       - 9870:9870
       - 9000:9000
     networks:
-      -  hadoop-net
+      hostnet: {}
     deploy:
       mode: global
       placement:
@@ -22,6 +22,7 @@ services:
       - hadoop_namenode:/hadoop/dfs/name
     environment:
       - CLUSTER_NAME=test
+      - CORE_CONF_fs_defaultFS=hdfs://${PRIMARY_HOST}:9000
     env_file:
       - ./hadoop.env
 
@@ -33,7 +34,7 @@ services:
         soft: 8096
         hard: 8096
     networks:
-      -  hadoop-net
+      hostnet: {}
     deploy:
       mode: global
       placement:
@@ -43,7 +44,7 @@ services:
       - hadoop_datanode1:/hadoop/dfs/data    
     environment:
       - CLUSTER_NAME=test
-      - CORE_CONF_fs_defaultFS=hdfs://namenodedns:9000
+      - CORE_CONF_fs_defaultFS=hdfs://${PRIMARY_HOST}:9000
       
     env_file:
       - ./hadoop.env  
@@ -54,4 +55,6 @@ volumes:
 
 
 networks:
-  hadoop-net:
+  hostnet:
+    external: true
+    name: host
