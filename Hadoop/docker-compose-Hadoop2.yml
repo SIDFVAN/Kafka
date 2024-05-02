@@ -50,4 +50,7 @@ services:
 
 networks:
   hadoop-net:
-  
+
+volumes:
+  hadoop_namenode:
+  hadoop_datanode1:
