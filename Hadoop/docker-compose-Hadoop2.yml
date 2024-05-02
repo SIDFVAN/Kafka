@@ -18,7 +18,7 @@ services:
         condition: on-failure
       placement:
         constraints:
-          - node.hostname == akswnc4.aksw.uni-leipzig.de
+          - node.labels.hadoop==1
       labels:
         traefik.docker.network: hbase
         traefik.port: 50070
@@ -35,6 +35,9 @@ services:
       SERVICE_PRECONDITION: "namenode:50070"
     deploy:
       mode: global
+      placement:
+        constraints:
+          - node.labels.hadoop==1
       restart_policy:
         condition: on-failure
       labels:
@@ -56,7 +59,7 @@ services:
         condition: on-failure
       placement:
         constraints:
-          - node.hostname == akswnc4.aksw.uni-leipzig.de
+          - node.labels.hadoop==1
       labels:
         traefik.docker.network: hbase
         traefik.port: 8088
@@ -73,6 +76,9 @@ services:
       - ./hadoop.env
     deploy:
       mode: global
+      placement:
+        constraints:
+          - node.labels.hadoop==1
       restart_policy:
         condition: on-failure
       labels:
@@ -94,7 +100,7 @@ services:
       replicas: 1
       placement:
         constraints:
-          - node.hostname == akswnc4.aksw.uni-leipzig.de
+          - node.labels.hadoop==1
       labels:
         traefik.docker.network: hbase
         traefik.port: 8188
