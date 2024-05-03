@@ -63,8 +63,8 @@ services:
       - ./hadoop.env
 
 networks:
-  hadoop-net:
-    external: true
+  host:
+    
 volumes:
   hadoop_namenode:
   hadoop_datanode1:
