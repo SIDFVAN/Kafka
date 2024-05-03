@@ -18,7 +18,7 @@ services:
         protocol: tcp
         mode: host
     networks:
-      - hadoop-net
+      - host
      
     deploy:
       mode: global
@@ -43,7 +43,7 @@ services:
         hard: 8096
     
     networks:
-      - hadoop-net
+      - host
     deploy:
       mode: global
       placement:
