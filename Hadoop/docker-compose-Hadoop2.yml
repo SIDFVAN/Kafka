@@ -64,7 +64,7 @@ services:
 
 networks:
   hadoop-net:
-
+    external:
 volumes:
   hadoop_namenode:
   hadoop_datanode1:
