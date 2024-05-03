@@ -17,6 +17,10 @@ services:
         published: 9000
         protocol: tcp
         mode: host
+      - target: 9867
+        published: 9867
+        protocol: tcp
+        mode: host
     networks:
       - hadoop-net
      
