@@ -11,8 +11,8 @@ services:
     networks:
       - hadoop-net
     ports:
-      - 40209:9870
-      - 40208:9000
+      - 9092:9870
+      - 9093:9000
     deploy:
       mode: global
       placement:
@@ -51,10 +51,7 @@ services:
     env_file:
       - ./hadoop.env
 
-  firefox:
-    image: jlesage/firefox
-    ports:
-      - 40210:5800
+
 
 networks:
   hadoop-net:
