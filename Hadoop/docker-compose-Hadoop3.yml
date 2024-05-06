@@ -10,8 +10,8 @@ services:
         soft: 8096
         hard: 8096
     ports:
-      - 9870:9870
-      - 9000:9000
+      - 40209:9870
+      - 40208:9000
     volumes:
       - hadoop_namenode4:/hadoop/dfs/name
     environment:
@@ -38,8 +38,8 @@ services:
   firefox:
     image: jlesage/firefox
     ports:
-      - 18080:5800
+      - 40210:5800
   
 volumes:
-  hadoop_namenode4:
-  hadoop_datanode4:
+  hadoop_namenode:
+  hadoop_datanode:
