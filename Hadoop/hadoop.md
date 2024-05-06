@@ -125,7 +125,7 @@ Zie OLOD
 
 
 
-
+docker stack deploy -c docker-compose-Hadoop2.yml hadoop
 
 
 
