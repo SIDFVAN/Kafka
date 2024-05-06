@@ -5,6 +5,10 @@ services:
     image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
     container_name: namenode
     restart: always
+    ulimits:
+      nofile:
+        soft: 8096
+        hard: 8096
     ports:
       - 9870:9870
       - 9000:9000
@@ -19,6 +23,10 @@ services:
     image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
     container_name: datanode1
     restart: always
+    ulimits:
+      nofile:
+        soft: 8096
+        hard: 8096
     volumes:
       - hadoop_datanode2:/hadoop/dfs/data    
     environment:
