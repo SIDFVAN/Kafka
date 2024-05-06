@@ -14,7 +14,8 @@ services:
       - 9092:40208
     volumes:
       - hadoop_namenode:/hadoop/dfs/name
-  
+    environment:
+      - CLUSTER_NAME=test
       
       
 
