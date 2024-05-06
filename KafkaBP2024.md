@@ -94,7 +94,7 @@ RUN apt-get update && apt-get install openjdk-8-jre -y
 ENV kafka_version=2.13-3.7.0
 ADD ./kafka_${kafka_version}.tgz ./
 RUN mv kafka_${kafka_version} /opt/kafka
-RUN /opt/kafka/bin/kafka-storage.sh format -t azgB17mFT8if8tYAPn4y6Q -c /opt/kafka/config/kraft/server.properties
+RUN /opt/kafka/bin/kafka-storage.sh format -t azgB17mFT8if8tYAPn4y6Q -c /opt/kafka/config/kraft/server.propertiestar 
 
 ```
 
