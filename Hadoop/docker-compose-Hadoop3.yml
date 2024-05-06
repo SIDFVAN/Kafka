@@ -11,7 +11,7 @@ services:
         hard: 8096
     ports:
       - 9093:9870
-      - 9092:9000
+      - 9092:40208
     volumes:
       - hadoop_namenode:/hadoop/dfs/name
     environment:
