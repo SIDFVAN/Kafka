@@ -33,7 +33,7 @@ services:
     volumes:
       - hadoop_datanode:/hadoop/dfs/data    
     environment:
-      SERVICE_PRECONDITION: "144.178.108.18:40209"
+     
       CORE_CONF_fs_defaultFS: "hdfs://144.178.108.18:40208"
     env_file:
       - ./hadoop.env
