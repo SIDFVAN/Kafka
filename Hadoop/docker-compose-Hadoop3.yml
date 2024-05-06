@@ -16,9 +16,7 @@ services:
       - hadoop_namenode:/hadoop/dfs/name
     environment:
       - CLUSTER_NAME=test
-      - HDFS_CONF_dfs_namenode_secondary_http__address=0.0.0.0:9000
-      - HDFS_CONF_dfs_namenode-rpc-bind-host=0.0.0.0:9000
-      - HDFS_CONF_dfs_namenode_servicerpc-bind-host=0.0.0.0:9000
+
 
 
     env_file:
