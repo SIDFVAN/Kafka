@@ -11,11 +11,12 @@ services:
         hard: 8096
     ports:
       - 9093:9870
-      - 9092:40208
+      - 9092:9000
     volumes:
       - hadoop_namenode:/hadoop/dfs/name
     environment:
       - CLUSTER_NAME=test
+      - HDFS_CONF_dfs_namenode_secondary_http__address: "0.0.0.0:9000"
     env_file:
       - ./hadoop.env
 
@@ -39,7 +40,7 @@ services:
   firefox:
     image: jlesage/firefox
     ports:
-      - 40210:5800
+      - 9094:5800
   
 volumes:
   hadoop_namenode:
