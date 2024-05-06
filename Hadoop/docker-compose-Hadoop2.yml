@@ -8,24 +8,16 @@ services:
       nofile:
         soft: 8096
         hard: 8096
-    ports:
-      - target: 9870
-        published: 9870
-        protocol: tcp
-        mode: host
-      - target: 9000
-        published: 9000
-        protocol: tcp
-        mode: host
     networks:
-      - host
-     
+      - hadoop-net
+    ports:
+      - 40209:9870
+      - 40208:9000
     deploy:
       mode: global
-      endpoint_mode: dnsrr
       placement:
         constraints:
-          - node.labels.hadoop==1
+          - node.labels.kafka==1
     volumes:
       - hadoop_namenode:/hadoop/dfs/name
     environment:
@@ -42,12 +34,12 @@ services:
         hard: 8096
     
     networks:
-      - host
+      - hadoop-net
     deploy:
       mode: global
       placement:
         constraints:
-          - node.labels.hadoop==1
+          - node.labels.kafka==1
    
     
     ports:
@@ -59,9 +51,14 @@ services:
     env_file:
       - ./hadoop.env
 
+  firefox:
+    image: jlesage/firefox
+    ports:
+      - 40210:5800
+
 networks:
-  host:
+  hadoop-net:
     
 volumes:
   hadoop_namenode:
-  hadoop_datanode1:
+  hadoop_datanode:
