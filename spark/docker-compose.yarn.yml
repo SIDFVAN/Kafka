@@ -1,7 +1,10 @@
 version: '3.8'
 services:
   spark-yarn-master:
-    image: frankv72/spark-yarn-image:1.0
+    build:
+      dockerfile: Dockerfile
+      context: '.'
+    
     hostname: spark-yarn-master
     networks:
       - spark-net
