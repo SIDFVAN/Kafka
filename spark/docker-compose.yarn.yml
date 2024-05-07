@@ -99,3 +99,6 @@ services:
       - .env.spark
     ports:
       - '18080:18080'
+
+networks:
+    spark-net:
