@@ -16,11 +16,6 @@
     <property>
         <name>dfs.permissions.enabled</name>
         <value>false</value>
-    </property>
-        <property>
-        <name>dfs.datanode.hostname</name>
-        <value>plex.compucoast.be</value>
-    </property>
     <property>
         <name>dfs.client.use.datanode.hostname</name>
         <value>true</value>
