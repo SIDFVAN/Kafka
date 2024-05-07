@@ -19,6 +19,7 @@ services:
 
 
   spark-yarn-worker1:
+    container_name: spark-yarn-worker1
     image: frankv72/spark-yarn-image:1.0
     hostname: spark-yarn-worker1
     entrypoint: ['./entrypoint.sh', 'worker']
@@ -31,7 +32,7 @@ services:
       - ./spark_apps:/opt/spark/apps
 
   spark-yarn-worker2:
-  
+    container_name: spark-yarn-worker2
     image: frankv72/spark-yarn-image:1.0
     hostname: spark-yarn-worker2
     entrypoint: ['./entrypoint.sh', 'worker']
@@ -44,7 +45,7 @@ services:
       - ./spark_apps:/opt/spark/apps
 
   spark-yarn-worker3:
-  
+    container_name: spark-yarn-worker3
     image: frankv72/spark-yarn-image:1.0
     hostname: spark-yarn-worker3
 
@@ -58,6 +59,7 @@ services:
       - ./spark_apps:/opt/spark/apps
 
   yarn-history-server:
+    container_name: spark-yarn-history
     hostname: spark-yarn-history
     image: frankv72/spark-yarn-image:1.0
 
