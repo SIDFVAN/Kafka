@@ -51,6 +51,9 @@ yn96brk87q6cx6xttwrxgbn7k
 
 docker stack deploy -c docker-compose.yarn.yml Spark --detach=false
 
+
+
+
 ssh -p  40216 vicuser@vichogent.be
 
 sudo hostnamectl set-hostname node6
@@ -79,3 +82,7 @@ sudo nano /etc/hosts
 
 docker swarm join --token SWMTKN-1-13atmgvfp3oveyp0pyjjzdk5ipttkowq54fi62urbs1jjotmew-0xpela4gkxblq4wy3hq1gs5pn 10.11.0.109:2377
 
+nodes
+
+    docker node update --label-add spark=1 node1
+    docker node update --label-add spark=2 node2
