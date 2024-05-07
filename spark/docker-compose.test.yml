@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
       context: '.'
     container_name: da-spark-yarn-master
-    # image: frankv72/spark-yarn-image:1.0
+    #image: frankv72/spark-yarn-image:1.0
     hostname: spark-yarn-master
     entrypoint: ['./entrypoint.sh', 'master']
     volumes:
@@ -74,3 +74,6 @@ services:
       - .env.spark
     ports:
       - '18080:18080'
+networks:
+  default:
+    driver: host
