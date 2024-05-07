@@ -19,7 +19,7 @@
     </property>
         <property>
         <name>dfs.datanode.hostname</name>
-        <value>spark-yarn-master</value>
+        <value>plex.compucoast.be</value>
     </property>
     <property>
         <name>dfs.client.use.datanode.hostname</name>
