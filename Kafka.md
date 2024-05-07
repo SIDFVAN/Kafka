@@ -38,7 +38,7 @@ test ssh connect to bp2024@172.16.0.4 with no password
 
 ```console
 
-sudo yum install git
+sudo yum install -y git
 git config --global user.name "Frank Vanhoorne"
 git config --global user.email "frank.vanhoorne@student.hogent.be"
 git config --global push.default simple
