@@ -2,11 +2,11 @@ version: '3.8'
 
 services:
   spark-yarn-master:
-    build:
-      dockerfile: Dockerfile
-      context: '.'
+   # build:
+    #  dockerfile: Dockerfile
+    #  context: '.'
     container_name: da-spark-yarn-master
-    #image: frankv72/spark-yarn-image:1.0
+    image: frankv72/spark-yarn-image:1.0
     hostname: spark-yarn-master
     entrypoint: ['./entrypoint.sh', 'master']
     volumes:
