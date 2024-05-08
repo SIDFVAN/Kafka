@@ -3,6 +3,6 @@
 <configuration>
     <property>
         <name>fs.defaultFS</name>
-        <value>hdfs://plex.compucoast.be:8080</value>
+        <value>hdfs://spark-yarn-master:8080</value>
     </property>
 </configuration>
